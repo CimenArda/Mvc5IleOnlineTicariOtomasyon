@@ -1,0 +1,17 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<form method="post" action="KategoriEkle" class="form-group">
+
+    <label>Kategori Adı</label>
+    <br />
+    <input type="text" class="form-control" name="KategoriAd" />
+    <br />
+    <button type="submit" class="btn btn-success">Kategori Ekle</button>
+</form>

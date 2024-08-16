@@ -15,10 +15,9 @@ namespace Mvc5OnlineTicariOtomasyon.Models.Siniflar
         //cari
         //personel
 
-        public ICollection<Urun> Urun { get; set; }
-        public ICollection<Cari> Cari { get; set; }
-        public ICollection<Personel> Personel { get; set; }
-
+         public Urun Uruns { get; set; }  
+         public Cari Caris { get; set; }  
+         public Personel Personels { get; set; }  
 
 
 

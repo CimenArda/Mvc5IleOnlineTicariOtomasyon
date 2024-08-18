@@ -1,0 +1,41 @@
+﻿@using Mvc5OnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "MusteriAlis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cari Alım Geçmişi</h2>
+
+
+<ol class="breadcrumb mb-4" style="margin-top:30px">
+    Cari Adı :
+    <li class="breadcrumb-item active">@ViewBag.cariad</li>
+</ol>
+
+<table class="table table-striped">
+    <tr>
+        <th>Satış Numarası</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SatisHareketID</td>
+            <td>@item.Uruns.UrunAd</td>
+            <td>@item.Personels.PersonelAd @item.Personels.PersonelSoyad</td>
+            <td>@item.Fiyat</td>
+            <td>@item.Adet</td>
+            <td>@item.ToplamTutar</td>
+            <td>@Convert.ToDateTime(@item.Tarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="#" class="btn btn-primary">Yazdır</a></td>
+        </tr>
+    }
+</table>

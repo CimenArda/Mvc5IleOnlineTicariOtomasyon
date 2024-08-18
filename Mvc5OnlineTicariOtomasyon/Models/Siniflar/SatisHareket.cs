@@ -15,11 +15,13 @@ namespace Mvc5OnlineTicariOtomasyon.Models.Siniflar
         //cari
         //personel
 
-         public Urun Uruns { get; set; }  
-         public Cari Caris { get; set; }  
-         public Personel Personels { get; set; }  
+         public virtual Urun Uruns { get; set; }  
+         public virtual Cari Caris { get; set; }  
+         public virtual Personel Personels { get; set; }
 
-
+        public int Urunid { get; set; }
+        public int Cariid { get; set; }
+        public int Personelid { get; set; }
 
 
         public DateTime Tarih { get; set; }

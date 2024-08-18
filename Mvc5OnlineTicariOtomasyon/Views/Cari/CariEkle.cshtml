@@ -1,0 +1,36 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cari Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("CariEkle", "Cari", FormMethod.Post, new { @style = "margin-left:20px" }))
+{
+    <div class="form-group">
+
+
+        @Html.LabelFor(x => x.CariAd)
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(x => x.CariSoyad)
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(x => x.CariSehir)
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(x => x.CariMail)
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.CariDurum)
+        @Html.TextBoxFor(x => x.CariDurum, new { @class = "form-control" })
+        <br />
+
+        <button class="btn btn-success">Ekle</button>
+    </div>
+}
+

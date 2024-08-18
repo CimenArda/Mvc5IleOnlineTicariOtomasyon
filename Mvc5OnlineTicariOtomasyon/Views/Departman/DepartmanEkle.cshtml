@@ -1,0 +1,19 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.Departman
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" action="DepartmanEkle" class="form-group" style="margin-top:10px;margin-left:15px">
+
+    <label>Departman Adı</label>
+    <br />
+    <input type="text" class="form-control" name="DepartmanAd" />
+    <br />
+    <label>Departman Durumu</label>
+    <br />
+    <input type="text" class="form-control" name="Durum" />
+    <br />
+    <button type="submit" class="btn btn-success">Departman Ekle</button>
+</form>

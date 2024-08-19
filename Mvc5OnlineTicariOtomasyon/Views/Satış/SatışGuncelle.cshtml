@@ -1,0 +1,39 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatışGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group" style="margin-left:20px">
+    @Html.HiddenFor(x => x.SatisHareketID)
+
+    <label>Ürün</label>
+    @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.deger, new { @class = "form-control" })
+
+    <br />
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.deger1, new { @class = "form-control" })
+
+    <br />
+    <label>Cari</label>
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.deger2, new { @class = "form-control" })
+
+    <br />
+    @Html.LabelFor(x => x.Adet)
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+    <br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    <label>Toplam Tutar</label>
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Satışı Güncelle</button>
+
+
+</form>
+
+

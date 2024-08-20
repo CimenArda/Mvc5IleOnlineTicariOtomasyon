@@ -1,0 +1,35 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "FaturaKalemEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("FaturaKalemEkle", "Fatura", FormMethod.Post, new { @style = "margin-left:20px" }))
+{
+    <br />
+    <label>Fatura Sıra Numarası</label>
+    @Html.DropDownListFor(x => x.Faturaid, (List<SelectListItem>)ViewBag.deger, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+
+    <br />
+    <label>Miktar</label>
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+
+    <br />
+    <label>Birim Fiyatı</label>
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
+
+    <br />
+    <label>Tutar</label>
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-success">Fatura Kalemi Gir</button>
+
+
+
+
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Mvc5OnlineTicariOtomasyon.Models.Siniflar.SınıfGrup3>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Marka/Ürün Tablosu</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Marka</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Adet</th>
+                </tr>
+            </thead>
+            @{ int sirano =0;}
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+                        <td>@{sirano++;} @sirano</td>
+                        <td>@item.Marka</td>
+                        <td>
+                            @if (item.Sayi == 1)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-danger" style="width:90%"></div>
+                                </div>
+
+                            }
+                            @if (item.Sayi == 2)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width:90%"></div>
+                                </div>
+                            }
+                            @if (item.Sayi == 3)
+                            {
+                                <div class="progress progress-xs ">
+                                    <div class="progress-bar bg-success" style="width:90%"></div>
+                                </div>
+                            }
+
+
+
+                        </td>
+                        <td><span class="badge bg-danger">@item.Sayi</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

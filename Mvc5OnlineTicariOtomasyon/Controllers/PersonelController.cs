@@ -77,7 +77,11 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
 
 
 
-
+        public ActionResult PersonelDetaylıListesi()
+        {
+            var personeller = db.Personels.ToList();
+            return View(personeller);
+        }
 
 
 

@@ -14,12 +14,13 @@
         <th>Fatura Seri No</th>
         <th>Fatura Sıra No</th>
         <th>Tarih</th>
-        <th>Vergi Dairesi</th>
         <th>Saat</th>
         <th>Toplam</th>
-        <th>Teslim Eden</th>
-        <th>Teslim Alan</th>
-        <th></th>
+   
+        <th>Detay</th>
+        <th>Güncelleme</th>
+        <th>Yeni Kalem</th>
+        <th>Popup Liste</th>
     </tr>
 
     @foreach (var item in Model)
@@ -28,13 +29,13 @@
             <td>@item.FaturaSeriNo</td>
             <td>@item.FaturaSıraNo</td>
             <td>@Convert.ToDateTime(@item.Tarih).ToString("d/MM/yyyy")</td>
-            <td>@item.VergiDairesi</td>
             <td>@item.Saat</td>
             <td>@item.Toplam</td>
-            <td>@item.TeslimEden</td>
-            <td>@item.TeslimAlan</td>
+        
             <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-warning">Detaylar</a></td>
             <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-secondary">Kalem</a></td>
+            <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-outline-info">Popup </a></td>
         </tr>
     }
 

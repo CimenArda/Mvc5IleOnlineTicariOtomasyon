@@ -30,6 +30,10 @@ namespace Mvc5OnlineTicariOtomasyon.Models.Siniflar
 
         public bool CariDurum { get; set;}
 
+        [Column(TypeName = "Varchar")]
+        [StringLength(20)]
+        public string Sifre { get; set;}
+
         public ICollection<SatisHareket> SatisHarekets { get; set; }
 
 

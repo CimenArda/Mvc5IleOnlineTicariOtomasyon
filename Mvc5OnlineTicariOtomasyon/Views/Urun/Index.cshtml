@@ -5,15 +5,21 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<link href="~/Content/aramacubugu.css" rel="stylesheet" />
 
-
-
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+            {
+                <p>
+                    Ürün Adı: @Html.TextBox("p")
+                    <input type="submit" value="Ara" />
+             </p>
+            }
 
 <br />
 <table class="table table-bordered" style="margin-left:20px">
 
     <tr>
-        <th>Urun Numarası</th>
         <th>Urun Adı</th>
         <th>Urun Markası</th>
         <th>Urun Stok Sayısı</th>
@@ -25,12 +31,11 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.UrunID</td>
             <td>@item.UrunAd</td>
             <td>@item.Marka</td>
             <td>@item.Stok</td>
-            <td>@item.AlisFiyat</td>
-            <td>@item.SatisFiyat</td>
+            <td>@item.AlisFiyat TL</td>
+            <td>@item.SatisFiyat TL</td>
             <td>@item.Kategoris.KategoriAd</td>
             <td><a href="/Urun/UrunSil/@item.UrunID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Urun/UrunGuncelle/@item.UrunID" class="btn btn-success">Güncelle</a></td>

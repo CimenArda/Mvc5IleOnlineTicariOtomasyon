@@ -2002,6 +2002,7 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="Content\aramacubugu.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />

@@ -12,10 +12,15 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         // GET: Urun
         Context db = new Context();
 
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var urunler = db.Uruns.Where(x => x.Durum == true).ToList();
-            return View(urunler);
+            var urunler = (from x in db.Uruns select x);
+            if (!string.IsNullOrEmpty(p))
+            {
+                urunler =urunler.Where(y=>y.UrunAd.Contains(p));
+
+            }
+            return View(urunler.ToList());
         }
 
 

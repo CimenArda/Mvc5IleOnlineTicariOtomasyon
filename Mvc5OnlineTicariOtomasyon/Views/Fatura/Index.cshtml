@@ -16,11 +16,10 @@
         <th>Tarih</th>
         <th>Saat</th>
         <th>Toplam</th>
-   
+
         <th>Detay</th>
         <th>Güncelleme</th>
         <th>Yeni Kalem</th>
-        <th>Popup Liste</th>
     </tr>
 
     @foreach (var item in Model)
@@ -31,14 +30,56 @@
             <td>@Convert.ToDateTime(@item.Tarih).ToString("d/MM/yyyy")</td>
             <td>@item.Saat</td>
             <td>@item.Toplam</td>
-        
+
             <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-warning">Detaylar</a></td>
             <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-success">Güncelle</a></td>
-            <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-secondary">Kalem</a></td>
-            <td><a href="/Fatura/FaturaGuncelle/@item.FaturaID" class="btn btn-outline-info">Popup </a></td>
+            <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-secondary">Kalem</a></td>
         </tr>
     }
 
 
 </table>
 <a href="/Fatura/FaturaEkle" class="btn btn-primary" style="margin-left:20px">Yeni Fatura Girişi</a>
+
+
+<button type="button" class="btn btn-danger" onclick="$('#Modal1').modal('show')">Popup Penceresi</button>
+
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Diyalog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri NO</td>
+                        <td>Sıra NO</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaSeriNo</td>
+                            <td>@item.FaturaSıraNo</td>
+                            <td>@item.Toplam</td>
+                        </tr>
+
+                    }
+                </table>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Tamam.</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

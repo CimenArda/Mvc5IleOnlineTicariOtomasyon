@@ -60,9 +60,9 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             var bugünsatis = db.SatisHarekets.Count(x => x.Tarih == bugün);
             ViewBag.bugünsatis = bugünsatis;
 
-            
-            //var bugünkasa = db.SatisHarekets.Where(x=>x.Tarih ==bugün).Sum(y=>y.ToplamTutar).ToString();
-            //ViewBag.bugünkasa = bugünkasa;
+
+            var bugünkasa = db.SatisHarekets.Where(x => x.Tarih == bugün).Sum(y =>(decimal?)y.ToplamTutar).ToString();
+            ViewBag.bugünkasa = bugünkasa;
 
 
 

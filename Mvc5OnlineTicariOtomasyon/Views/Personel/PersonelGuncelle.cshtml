@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { @style = "margin-left:20px" }))
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post,new { enctype ="multipart/form-data"}))
 {
     @Html.HiddenFor(x=>x.PersonelID)
     <label>Personel Adı</label>
@@ -16,7 +16,8 @@
 
     <br />
     <label>Personel Görseli</label>
-    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+    <input type="file" name="PersonelGorsel" class="form-control" />
 
     <br />
     <label>Personel Departmanı</label>

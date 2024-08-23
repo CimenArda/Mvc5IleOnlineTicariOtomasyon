@@ -5,7 +5,7 @@
 }
 
 <br />
-<form method="post" class="form-group" style="margin-left:20px">
+<form method="post" class="form-group" style="margin-left:20px" enctype="multipart/form-data">
     <label>Personel Adı</label>
     @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
 
@@ -15,7 +15,8 @@
 
     <br />
     <label>Personel Görseli</label>
-    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+    <input type="file" name="PersonelGorsel" class="form-control" />
 
     <br />
     <label>Personel Departmanı</label>

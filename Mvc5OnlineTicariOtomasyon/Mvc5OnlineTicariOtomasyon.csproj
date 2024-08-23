@@ -2764,6 +2764,7 @@
     <Content Include="Views\Login\CariGiris.cshtml" />
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
     <Content Include="Views\Alert\Index.cshtml" />
+    <Content Include="Views\Urun\SatisYap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

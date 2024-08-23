@@ -1,0 +1,71 @@
+﻿@model Mvc5OnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<br />
+<form method="post" class="form-group" style="margin-left:20px">
+
+    <label>Ürün Numarası</label>
+
+    <input type="text" name="Urunid" value="@ViewBag.urunid" class="form-control" readonly />
+    <br />
+
+    <label>Cari</label>
+    @Html.TextBoxFor(x => x.Cariid, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.deger3, new { @class = "form-control" })
+
+    <br />
+
+
+    <label>Adet</label>
+    <input type="number" name="Adet" class="form-control" max="5" min="1" placeholder="Maksimum 5 adet girilebilir." id="txt1" onkeyup="carp();" />
+
+    <br />
+
+
+    <label>Fiyat</label>
+    <input type="text" name="Fiyat" value="@ViewBag.fiyat" class="form-control" id="txt2" onkeyup="carp();" />
+    <br />
+
+    <br />
+
+
+    <label>Toplam Tutar</label>
+    <input type="text" name="ToplamTutar" class="form-control" id="txt3" onkeyup="carp();" readonly />
+
+    <br />
+
+
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Satışı Yap</button>
+
+
+</form>
+
+@*<input type="text" id="txt1" />
+<input type="text"  />
+<input type="text" id="txt3" />*@
+
+
+<script>
+
+    function carp() {
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+
+
+        var sonuc = parseInt(sayi1) * parseInt(sayi2);
+        if (!isNaN(sonuc)) {
+
+            document.getElementById('txt3').value = sonuc;
+        }
+
+    }
+</script>

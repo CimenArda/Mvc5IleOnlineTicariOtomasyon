@@ -99,5 +99,38 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             return View(degerler);
         }
 
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+
+        
+
+            List<SelectListItem> deger3 = (from x in db.Personels.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.PersonelAd + " " +x.PersonelSoyad,
+                                              Value = x.PersonelID.ToString()
+
+                                          }).ToList();
+
+            ViewBag.deger3 = deger3;
+
+
+
+            var urunid = db.Uruns.Find(id);
+            ViewBag.urunid = urunid.UrunID;
+
+            ViewBag.fiyat = urunid.SatisFiyat;
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket sh)
+        {
+           
+            return View();
+        }
+
     }
 }

@@ -5,7 +5,7 @@
 }
 
 
-
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
 <form method="post" action="KategoriEkle" class="form-group">
 
@@ -13,5 +13,16 @@
     <br />
     <input type="text" class="form-control" name="KategoriAd" />
     <br />
-    <button type="submit" class="btn btn-success">Kategori Ekle</button>
+    <button type="submit" class="btn btn-success" id="btn1">Kategori Ekle</button>
 </form>
+
+
+<script>
+    $("#btn1").click(function () {
+
+        alert("Kategori Başarılı Bir Şekilde Eklendi.")
+    })
+
+
+
+    </script>

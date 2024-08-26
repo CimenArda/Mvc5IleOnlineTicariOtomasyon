@@ -141,6 +141,7 @@
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
+    <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KargoController.cs" />
@@ -2777,6 +2778,9 @@
     <Content Include="Views\Kargo\KargoEkle.cshtml" />
     <Content Include="Views\Kargo\KargoTakip.cshtml" />
     <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Grafik\Index.cshtml" />
+    <Content Include="Views\Grafik\Index2.cshtml" />
+    <Content Include="Views\Grafik\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

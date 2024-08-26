@@ -47,5 +47,108 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             return File(grafik.ToWebImage().GetBytes(), "Image/jpeg");
         }
 
+        public ActionResult Index4()
+        {
+            return View();
+        }
+
+        public ActionResult VisualizeUrunResult()
+        {
+            return Json(urunListesi(), JsonRequestBehavior.AllowGet);
+           
+        }
+
+        public List<Sinif1> urunListesi()
+        {
+            List<Sinif1> snf = new List<Sinif1>();
+            snf.Add(new Sinif1()
+            {
+                urunad = "Laptop",
+                stok = 120
+            });
+            snf.Add(new Sinif1()
+            {
+                urunad = "Su Isıtıcı",
+                stok = 141
+            });
+            snf.Add(new Sinif1()
+            {
+                urunad = "Buzdolabı",
+                stok = 45
+            });
+            snf.Add(new Sinif1()
+            {
+                urunad = "Tablet",
+                stok = 55
+            });
+
+            return snf;
+        }
+
+
+
+
+
+        public ActionResult Index5()
+        {
+            return View();
+        }
+
+
+        public ActionResult VisualizeUrunResult2()
+        {
+            return Json(urunListesi2(), JsonRequestBehavior.AllowGet);
+
+        }
+
+        public List<Sinif2> urunListesi2()
+        {
+            List<Sinif2> snf = new List<Sinif2>();
+            using (var db = new Context())
+            {
+                snf = db.Uruns.Select(x => new Sinif2
+                {
+                    urn = x.UrunAd,
+                    stk = x.Stok
+                }).ToList();
+            }
+
+            return snf;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

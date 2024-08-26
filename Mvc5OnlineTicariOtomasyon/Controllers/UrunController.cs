@@ -128,8 +128,10 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult SatisYap(SatisHareket sh)
         {
-           
-            return View();
+           sh.Tarih =DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.SatisHarekets.Add(sh);
+            db.SaveChanges();
+            return RedirectToAction("Index","Satış");
         }
 
     }

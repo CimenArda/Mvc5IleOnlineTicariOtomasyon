@@ -31,6 +31,73 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             return View(degerler);
         }
 
+        public ActionResult GelenMesajlar()
+        {
+            var mail = (string)Session["CariMail"];
+            var gelenmesajlar = db.Mesajlars.Where(x=>x.Alıcı==mail).OrderByDescending(x=>x.MesajID).ToList();
 
+
+            var gelenMesajSayi = db.Mesajlars.Count(x => x.Alıcı == mail);
+            ViewBag.gelenMesajSayi = gelenMesajSayi;
+
+
+
+            return View(gelenmesajlar);
+        }
+        public ActionResult GidenMesajlar()
+        {
+            var mail = (string)Session["CariMail"];
+            var gelenmesajlar = db.Mesajlars.Where(x => x.Gonderici == mail).ToList();
+
+
+
+            var gonderilenMesajSayi = db.Mesajlars.Count(x => x.Gonderici == mail);
+            ViewBag.gonderilenMesajSayi = gonderilenMesajSayi;
+
+            return View(gelenmesajlar);
+        }
+
+        public ActionResult MesajDetay(int id)
+        {
+            var mail = (string)Session["CariMail"];
+
+
+            var mesajlar = db.Mesajlars.Where(x => x.MesajID == id).ToList();
+
+
+            var gelenMesajSayi = db.Mesajlars.Count(x => x.Alıcı == mail);
+            ViewBag.gelenMesajSayi = gelenMesajSayi;
+            var gonderilenMesajSayi = db.Mesajlars.Count(x => x.Gonderici == mail);
+            ViewBag.gonderilenMesajSayi = gonderilenMesajSayi;
+
+
+
+
+            return View(mesajlar);
+        }
+
+
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult YeniMesaj()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniMesaj(Mesajlar m)
+        {
+            var mail = (string)Session["CariMail"];
+            m.Gonderici= mail;
+            m.Tarih=Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            db.Mesajlars.Add(m);
+            db.SaveChanges();
+            return View();
+        }
     }
 }

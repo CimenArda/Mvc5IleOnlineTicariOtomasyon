@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Mvc5OnlineTicariOtomasyon.Controllers
 {
@@ -16,7 +17,7 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var cariMail = (string)Session["CariMail"];
-            var degerler =db.Caris.FirstOrDefault(x=>x.CariMail == cariMail);
+            var degerler = db.Caris.FirstOrDefault(x => x.CariMail == cariMail);
 
             ViewBag.CariMail = cariMail;
             return View(degerler);
@@ -25,16 +26,18 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         public ActionResult Siparislerim()
         {
             var cariMail = (string)Session["CariMail"];
-            var id =db.Caris.Where(x=>x.CariMail ==cariMail.ToString()).Select(y=>y.CariID).FirstOrDefault();
+            var id = db.Caris.Where(x => x.CariMail == cariMail.ToString()).Select(y => y.CariID).FirstOrDefault();
 
-            var degerler =db.SatisHarekets.Where(x=>x.Cariid==id).ToList();
+            var degerler = db.SatisHarekets.Where(x => x.Cariid == id).ToList();
             return View(degerler);
+
+
         }
 
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["CariMail"];
-            var gelenmesajlar = db.Mesajlars.Where(x=>x.Alıcı==mail).OrderByDescending(x=>x.MesajID).ToList();
+            var gelenmesajlar = db.Mesajlars.Where(x => x.Alıcı == mail).OrderByDescending(x => x.MesajID).ToList();
 
 
             var gelenMesajSayi = db.Mesajlars.Count(x => x.Alıcı == mail);
@@ -76,13 +79,6 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             return View(mesajlar);
         }
 
-
-
-
-
-
-
-
         [HttpGet]
         public ActionResult YeniMesaj()
         {
@@ -93,11 +89,37 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         public ActionResult YeniMesaj(Mesajlar m)
         {
             var mail = (string)Session["CariMail"];
-            m.Gonderici= mail;
-            m.Tarih=Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            m.Gonderici = mail;
+            m.Tarih = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             db.Mesajlars.Add(m);
             db.SaveChanges();
             return View();
+        }
+
+
+        public ActionResult KargoTakip(string p)
+        {
+            var kargo = (from x in db.KargoDetays select x);
+            kargo = kargo.Where(y => y.TakipKodu.Contains(p));
+
+            return View(kargo.ToList());
+        }
+
+
+        public ActionResult KargoDetay(string id)
+        {
+            var degerler = db.KargoTakips.Where(x => x.TakipKodu == id).ToList();
+
+
+            return View(degerler);
+        }
+
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

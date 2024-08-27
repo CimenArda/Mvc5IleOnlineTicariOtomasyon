@@ -2790,6 +2790,8 @@
     <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
     <Content Include="Views\CariPanel\MesajDetay.cshtml" />
     <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
+    <Content Include="Views\CariPanel\KargoTakip.cshtml" />
+    <Content Include="Views\CariPanel\KargoDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

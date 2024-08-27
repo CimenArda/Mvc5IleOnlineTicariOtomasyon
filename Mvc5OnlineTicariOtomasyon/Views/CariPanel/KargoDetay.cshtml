@@ -1,8 +1,8 @@
 ﻿@using Mvc5OnlineTicariOtomasyon.Models.Siniflar
 @model List<KargoTakip>
 @{
-    ViewBag.Title = "KargoTakip";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "KargoDetay";
+    Layout = "~/Views/Shared/_CariPanel.cshtml";
 }
 
 
@@ -12,7 +12,7 @@
     <tr>
         <th>Açıklama</th>
         <th>Tarih</th>
-  
+
     </tr>
 
     @foreach (var item in Model)
@@ -20,12 +20,15 @@
         <tr>
             <td>@item.Aciklama</td>
             <td>@item.TarihZaman</td>
-           
+
         </tr>
     }
 
 
 </table>
+<a href="/Cari/CariEkle" class="btn btn-primary" style="margin-left:20px">Yeni Cari Ekle</a>
+
+
 
 
 

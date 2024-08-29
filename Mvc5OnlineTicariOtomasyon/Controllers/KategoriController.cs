@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Mvc5OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class KategoriController : Controller
     {
         // GET: Kategori
@@ -65,5 +66,34 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         }
 
 
+        public ActionResult Deneme()
+        {
+            Class3 cs = new Class3();
+
+            cs.Kategoriler = new SelectList(db.Kategoris, "KategoriID", "KategoriAd");
+
+            cs.Urunler = new SelectList(db.Uruns, "UrunID", "UrunAd");
+
+            return View(cs);
+        }
+
+        public JsonResult UrunGetir(int p)
+        {
+            var urunListesi = (from x in db.Uruns
+                               join y in db.Kategoris
+                               on x.Kategoriid equals y.KategoriID
+                               where x.Kategoriid == p
+                               select new {
+
+                                   Text = x.UrunAd,
+                                   Value = x.UrunID.ToString()
+
+
+                               }).ToList();
+
+            return Json(urunListesi,JsonRequestBehavior.AllowGet);                 
+                                 
+                              
+        }
     }
 }

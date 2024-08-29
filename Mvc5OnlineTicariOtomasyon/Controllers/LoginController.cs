@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace Mvc5OnlineTicariOtomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Mvc5OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class YapilacaklarController : Controller
     {
         // GET: Yapilacaklar

@@ -1,0 +1,57 @@
+﻿@using Mvc5OnlineTicariOtomasyon.Models.Siniflar
+@model List<Mesajlar>
+
+
+
+@foreach (var item in Model)
+{
+
+
+    <div class="tab-pane" id="timeline">
+
+        <!-- The timeline -->
+
+        <div class="timeline timeline-inverse">
+
+            <!-- timeline time label -->
+
+            <div class="time-label">
+
+                <span class="bg-danger">
+
+                   @Convert.ToDateTime(item.Tarih).ToString("dd/MM/yyyy")
+                </span>
+
+            </div>
+
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+
+            <div>
+
+                <i class="fas fa-envelope bg-primary"></i>
+
+                <div class="timeline-item">
+
+                    <span class="time"><i class="far fa-clock"></i>@item.Tarih</span>
+
+                    <h3 class="timeline-header"><a href="#">@item.Gonderici</a>-@item.Konu</h3>
+
+                    <div class="timeline-body">
+
+                     @item.Icerik
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+
+        
+
+        </div>
+
+    </div>
+}

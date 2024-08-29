@@ -213,6 +213,7 @@
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="AdminLTE-3.0.4\dist\img\6009864.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\AdminLTELogo.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar04.png" />
@@ -228,12 +229,14 @@
     <Content Include="AdminLTE-3.0.4\dist\img\credit\paypal.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\credit\paypal2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\credit\visa.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\Customer-Logo-Transparent-PNG.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\default-150x150.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\icons.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo1.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo3.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo4.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\pngtree-customer-service-avatar-image_1288891.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-1.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-2.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-3.jpg" />
@@ -2792,6 +2795,8 @@
     <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
     <Content Include="Views\CariPanel\KargoTakip.cshtml" />
     <Content Include="Views\CariPanel\KargoDetay.cshtml" />
+    <Content Include="Views\CariPanel\Partial1.cshtml" />
+    <Content Include="Views\CariPanel\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

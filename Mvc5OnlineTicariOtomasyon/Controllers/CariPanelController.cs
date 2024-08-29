@@ -17,9 +17,37 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var cariMail = (string)Session["CariMail"];
-            var degerler = db.Caris.FirstOrDefault(x => x.CariMail == cariMail);
+
+
+            var degerler = db.Mesajlars.Where(x => x.Alıcı == cariMail).ToList();
 
             ViewBag.CariMail = cariMail;
+
+            var mailid = db.Caris.Where(x => x.CariMail == cariMail).Select(y => y.CariID).FirstOrDefault();
+
+            ViewBag.mailid = mailid;
+
+
+
+            var toplamsatis = db.SatisHarekets.Where(x => x.Cariid == mailid).Count().ToString();
+            ViewBag.toplamsatis = toplamsatis;
+
+
+            var toplamTutar = db.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.ToplamTutar).ToString();
+            ViewBag.toplamTutar = toplamTutar;
+
+            var toplamUrunSayisi = db.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.Adet).ToString();
+            ViewBag.toplamUrunSayisi = toplamUrunSayisi;
+
+
+            var adsoyad = db.Caris.Where(x => x.CariMail == cariMail).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault();
+            ViewBag.adsoyad = adsoyad;
+
+            var sehir = db.Caris.Where(x => x.CariMail == cariMail).Select(y => y.CariSehir).FirstOrDefault();
+            ViewBag.sehir = sehir;
+
+
+
             return View(degerler);
         }
 
@@ -120,6 +148,51 @@ namespace Mvc5OnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+
+
+
+        public PartialViewResult Partial1()
+        {
+            var cariMail = (string)Session["CariMail"];
+
+
+            var id = db.Caris.Where(x => x.CariMail == cariMail).Select(y => y.CariID).FirstOrDefault();
+
+            var caribul = db.Caris.Find(id);
+
+            return PartialView("Partial1", caribul);
+        }
+        [HttpPost]
+        public ActionResult CariBilgiGuncelle(Cari c)
+        {
+            var cariMail = (string)Session["CariMail"];
+
+
+            var id = db.Caris.Where(x => x.CariMail == cariMail).Select(y => y.CariID).FirstOrDefault();
+
+            var caribul = db.Caris.Find(id);
+
+            caribul.CariAd = c.CariAd;
+            caribul.CariSoyad = c.CariSoyad;
+            caribul.CariSehir = c.CariSehir;
+            caribul.CariMail = c.CariMail;
+            caribul.Sifre = c.Sifre;
+
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "CariPanel");
+        }
+
+
+
+
+        public PartialViewResult Partial2()
+        {
+            var veriler = db.Mesajlars.Where(x => x.Gonderici == "Admin").ToList();
+            return PartialView(veriler);
         }
     }
 }
